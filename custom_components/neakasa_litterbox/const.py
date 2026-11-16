@@ -26,5 +26,7 @@ CONF_STATISTICS_LOOKBACK_DAYS = "statistics_lookback_days"
 REGION_US = "us"
 REGION_EU = "eu"
 REGION_AP = "ap"
-REGIONS: tuple[str, ...] = (REGION_US, REGION_EU, REGION_AP)
+# Fork addition: the Chinese mainland cluster (region.neabot.com.cn).
+REGION_CN = "cn"
+REGIONS: tuple[str, ...] = (REGION_US, REGION_EU, REGION_AP, REGION_CN)
 DEFAULT_REGION = REGION_US

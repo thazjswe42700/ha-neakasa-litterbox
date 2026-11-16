@@ -5,11 +5,11 @@
     "@roquerodrigo"
   ],
   "config_flow": true,
-  "documentation": "https://github.com/roquerodrigo/ha-neakasa-litterbox",
+  "documentation": "https://github.com/thazjswe42700/ha-neakasa-litterbox",
   "iot_class": "cloud_push",
-  "issue_tracker": "https://github.com/roquerodrigo/ha-neakasa-litterbox/issues",
+  "issue_tracker": "https://github.com/thazjswe42700/ha-neakasa-litterbox/issues",
   "requirements": [
-    "neakasa-litterbox-sdk==0.2.4"
+    "neakasa-litterbox-sdk @ https://github.com/thazjswe42700/neakasa-litterbox-sdk/archive/refs/tags/v0.2.5-cn.1.zip"
   ],
-  "version": "1.8.1"
+  "version": "1.8.1-cn.1"
 }

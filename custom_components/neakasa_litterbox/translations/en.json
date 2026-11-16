@@ -1,155 +1,192 @@
 {
-    "config": {
-        "step": {
-            "user": {
-                "title": "Set up Neakasa Litterbox",
-                "description": "Enter the credentials of your Neakasa account.",
-                "data": {
-                    "username": "Email",
-                    "password": "Password",
-                    "region": "Region"
-                }
-            },
-            "reauth_confirm": {
-                "title": "Re-authenticate Neakasa Litterbox",
-                "description": "Your credentials are no longer valid. Enter the updated credentials.",
-                "data": {
-                    "username": "Email",
-                    "password": "Password",
-                    "region": "Region"
-                }
-            },
-            "reconfigure": {
-                "title": "Reconfigure Neakasa Litterbox",
-                "description": "Update the credentials and region for this account.",
-                "data": {
-                    "username": "Email",
-                    "password": "Password",
-                    "region": "Region"
-                }
-            }
-        },
-        "error": {
-            "auth": "Email or password is wrong.",
-            "connection": "Unable to connect to the Neakasa cloud.",
-            "unknown": "Unknown error occurred."
-        },
-        "abort": {
-            "already_configured": "This account is already configured.",
-            "reauth_successful": "Re-authentication was successful.",
-            "reconfigure_successful": "Reconfiguration was successful.",
-            "unique_id_mismatch": "The credentials belong to a different account. Add a new entry for another account instead."
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Neakasa Litterbox",
+        "description": "Enter the credentials of your Neakasa account.",
+        "data": {
+          "username": "Email",
+          "password": "Password",
+          "region": "Region"
         }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate Neakasa Litterbox",
+        "description": "Your credentials are no longer valid. Enter the updated credentials.",
+        "data": {
+          "username": "Email",
+          "password": "Password",
+          "region": "Region"
+        }
+      },
+      "reconfigure": {
+        "title": "Reconfigure Neakasa Litterbox",
+        "description": "Update the credentials and region for this account.",
+        "data": {
+          "username": "Email",
+          "password": "Password",
+          "region": "Region"
+        }
+      }
     },
-    "options": {
-        "step": {
-            "init": {
-                "title": "Neakasa Litterbox options",
-                "description": "Tune polling and statistics for this account.",
-                "data": {
-                    "scan_interval": "Polling interval (seconds)",
-                    "statistics_lookback_days": "Statistics lookback (days)"
-                }
-            }
-        }
+    "error": {
+      "auth": "Email or password is wrong.",
+      "connection": "Unable to connect to the Neakasa cloud.",
+      "unknown": "Unknown error occurred."
     },
-    "selector": {
-        "region": {
-            "options": {
-                "us": "United States",
-                "eu": "Europe",
-                "ap": "Asia / Pacific"
-            }
-        },
-        "weight_unit": {
-            "options": {
-                "kg": "Kilograms (kg)",
-                "lb": "Pounds (lb)"
-            }
-        }
-    },
-    "entity": {
-        "binary_sensor": {
-            "bucket_full": {"name": "Waste bucket full"},
-            "needs_cleaning": {"name": "Needs cleaning"}
-        },
-        "button": {
-            "clean_now": {"name": "Clean now"},
-            "level_now": {"name": "Level now"}
-        },
-        "event": {
-            "activity": {
-                "name": "Activity",
-                "state_attributes": {
-                    "event_type": {
-                        "state": {
-                            "cat_visit": "Cat visit",
-                            "cleaning_completed": "Cleaning completed",
-                            "leveling_completed": "Leveling completed"
-                        }
-                    }
-                }
-            }
-        },
-        "image": {
-            "cat_photo": {"name": "Photo"}
-        },
-        "number": {
-            "calibrate_sand": {"name": "Sand calibration"},
-            "cat_profile_weight": {"name": "Weight"}
-        },
-        "sensor": {
-            "cat_last_visit": {"name": "Last visit"},
-            "cat_time_in_box_today": {"name": "Time in box today"},
-            "cat_visits_today": {"name": "Visits today"},
-            "cat_weight": {"name": "Measured weight"},
-            "last_visit": {"name": "Last visit"},
-            "sand_percent": {"name": "Sand level"},
-            "operating_state": {
-                "name": "Status",
-                "state": {
-                    "idle": "Idle",
-                    "cleaning": "Cleaning",
-                    "restoring": "Restoring",
-                    "leveling": "Leveling",
-                    "cat_appears": "Cat appears"
-                }
-            },
-            "visits_today": {"name": "Visits today"}
-        },
-        "switch": {
-            "auto_clean": {"name": "Auto clean"},
-            "auto_level": {"name": "Auto level"},
-            "child_lock": {"name": "Child lock"},
-            "silent_mode": {"name": "Silent mode"}
-        }
-    },
-    "services": {
-        "set_cat_weight": {
-            "name": "Set cat weight",
-            "description": "Saves a weight to a cat's profile in the Neakasa cloud, which the litter box uses to tell cats apart. The other profile fields stay as they are, and past visits are not reassigned.",
-            "fields": {
-                "device_id": {
-                    "name": "Cat",
-                    "description": "The cat device whose profile receives the weight."
-                },
-                "weight": {
-                    "name": "Weight",
-                    "description": "The weight to save, in the unit below."
-                },
-                "unit": {
-                    "name": "Unit",
-                    "description": "The unit the weight is expressed in."
-                }
-            }
-        }
-    },
-    "exceptions": {
-        "not_a_cat": {
-            "message": "{device_name} is not a cat reported by the Neakasa cloud."
-        },
-        "set_cat_weight_failed": {
-            "message": "Failed to save the weight of {cat_name}: {error}"
-        }
+    "abort": {
+      "already_configured": "This account is already configured.",
+      "reauth_successful": "Re-authentication was successful.",
+      "reconfigure_successful": "Reconfiguration was successful.",
+      "unique_id_mismatch": "The credentials belong to a different account. Add a new entry for another account instead."
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Neakasa Litterbox options",
+        "description": "Tune polling and statistics for this account.",
+        "data": {
+          "scan_interval": "Polling interval (seconds)",
+          "statistics_lookback_days": "Statistics lookback (days)"
+        }
+      }
+    }
+  },
+  "selector": {
+    "region": {
+      "options": {
+        "us": "United States",
+        "eu": "Europe",
+        "ap": "Asia / Pacific",
+        "cn": "China Mainland"
+      }
+    },
+    "weight_unit": {
+      "options": {
+        "kg": "Kilograms (kg)",
+        "lb": "Pounds (lb)"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "bucket_full": {
+        "name": "Waste bucket full"
+      },
+      "needs_cleaning": {
+        "name": "Needs cleaning"
+      }
+    },
+    "button": {
+      "clean_now": {
+        "name": "Clean now"
+      },
+      "level_now": {
+        "name": "Level now"
+      }
+    },
+    "event": {
+      "activity": {
+        "name": "Activity",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "cat_visit": "Cat visit",
+              "cleaning_completed": "Cleaning completed",
+              "leveling_completed": "Leveling completed"
+            }
+          }
+        }
+      }
+    },
+    "image": {
+      "cat_photo": {
+        "name": "Photo"
+      }
+    },
+    "number": {
+      "calibrate_sand": {
+        "name": "Sand calibration"
+      },
+      "cat_profile_weight": {
+        "name": "Weight"
+      }
+    },
+    "sensor": {
+      "cat_last_visit": {
+        "name": "Last visit"
+      },
+      "cat_time_in_box_today": {
+        "name": "Time in box today"
+      },
+      "cat_visits_today": {
+        "name": "Visits today"
+      },
+      "cat_weight": {
+        "name": "Measured weight"
+      },
+      "last_visit": {
+        "name": "Last visit"
+      },
+      "sand_percent": {
+        "name": "Sand level"
+      },
+      "operating_state": {
+        "name": "Status",
+        "state": {
+          "idle": "Idle",
+          "cleaning": "Cleaning",
+          "restoring": "Restoring",
+          "leveling": "Leveling",
+          "cat_appears": "Cat appears"
+        }
+      },
+      "visits_today": {
+        "name": "Visits today"
+      }
+    },
+    "switch": {
+      "auto_clean": {
+        "name": "Auto clean"
+      },
+      "auto_level": {
+        "name": "Auto level"
+      },
+      "child_lock": {
+        "name": "Child lock"
+      },
+      "silent_mode": {
+        "name": "Silent mode"
+      }
+    }
+  },
+  "services": {
+    "set_cat_weight": {
+      "name": "Set cat weight",
+      "description": "Saves a weight to a cat's profile in the Neakasa cloud, which the litter box uses to tell cats apart. The other profile fields stay as they are, and past visits are not reassigned.",
+      "fields": {
+        "device_id": {
+          "name": "Cat",
+          "description": "The cat device whose profile receives the weight."
+        },
+        "weight": {
+          "name": "Weight",
+          "description": "The weight to save, in the unit below."
+        },
+        "unit": {
+          "name": "Unit",
+          "description": "The unit the weight is expressed in."
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "not_a_cat": {
+      "message": "{device_name} is not a cat reported by the Neakasa cloud."
+    },
+    "set_cat_weight_failed": {
+      "message": "Failed to save the weight of {cat_name}: {error}"
+    }
+  }
 }

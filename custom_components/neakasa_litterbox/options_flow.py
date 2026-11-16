@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING
 
-import probatio
+import voluptuous as vol
 from homeassistant.config_entries import ConfigFlowResult, OptionsFlow
 from homeassistant.const import CONF_SCAN_INTERVAL
 from homeassistant.helpers import selector
@@ -44,9 +44,9 @@ class NeakasaOptionsFlow(OptionsFlow):
 
         return self.async_show_form(
             step_id="init",
-            data_schema=probatio.Schema(
+            data_schema=vol.Schema(
                 {
-                    probatio.Optional(
+                    vol.Optional(
                         CONF_SCAN_INTERVAL,
                         default=current_scan,
                     ): selector.NumberSelector(
@@ -57,7 +57,7 @@ class NeakasaOptionsFlow(OptionsFlow):
                             mode=selector.NumberSelectorMode.BOX,
                         ),
                     ),
-                    probatio.Optional(
+                    vol.Optional(
                         CONF_STATISTICS_LOOKBACK_DAYS,
                         default=current_lookback,
                     ): selector.NumberSelector(
