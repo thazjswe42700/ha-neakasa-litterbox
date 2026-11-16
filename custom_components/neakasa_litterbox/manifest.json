@@ -11,5 +11,5 @@
   "requirements": [
     "neakasa-litterbox-sdk @ https://github.com/thazjswe42700/neakasa-litterbox-sdk/archive/refs/tags/v0.2.5-cn.1.zip"
   ],
-  "version": "1.8.1-cn.1"
+  "version": "1.8.1-cn.2"
 }
