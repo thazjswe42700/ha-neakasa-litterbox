@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import TYPE_CHECKING, cast
 
-import probatio
+import voluptuous as vol
 from homeassistant.const import ATTR_DEVICE_ID
 from homeassistant.core import HomeAssistant, ServiceCall, callback
 from homeassistant.exceptions import ServiceValidationError
@@ -27,14 +27,14 @@ SERVICE_SET_CAT_WEIGHT = "set_cat_weight"
 ATTR_WEIGHT = "weight"
 ATTR_UNIT = "unit"
 
-SET_CAT_WEIGHT_SCHEMA = probatio.Schema(
+SET_CAT_WEIGHT_SCHEMA = vol.Schema(
     {
-        probatio.Required(ATTR_DEVICE_ID): cv.string,
-        probatio.Required(ATTR_WEIGHT): probatio.All(
-            probatio.Coerce(float),
-            probatio.Range(min=0, min_included=False),
+        vol.Required(ATTR_DEVICE_ID): cv.string,
+        vol.Required(ATTR_WEIGHT): vol.All(
+            vol.Coerce(float),
+            vol.Range(min=0, min_included=False),
         ),
-        probatio.Required(ATTR_UNIT): probatio.In(CAT_WEIGHT_UNITS),
+        vol.Required(ATTR_UNIT): vol.In(CAT_WEIGHT_UNITS),
     }
 )
 
